@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="floating_button_margin">25dp</dimen>
+    <dimen name="margin_top">40dp</dimen>
+    <dimen name="floating_button_stroke">1dp</dimen>
+    <dimen name="layout_padding">15dp</dimen>
+    <dimen name="corner_radius">25dp</dimen>
+    <dimen name="layout_margin">15dp</dimen>
+</resources>

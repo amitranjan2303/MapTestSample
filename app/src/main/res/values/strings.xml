@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MapTest</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="floating_button">Floating-Button</string>
+    <string name="center_marker">Center-Marker</string>
+    <string name="property_name">Property Name</string>
+    <string name="property_coordinate">Property Coordinates</string>
+    <string name="submit">Submit</string>
+    <string name="coordinates">%s\n%s</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDAGcqj6CYTokKxjMNs5rvI9e3gcM5BqoA</string>
+    <string name="title_activity_maps2">MapsActivity2</string>
+
+</resources>
