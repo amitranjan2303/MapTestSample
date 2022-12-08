@@ -2,16 +2,13 @@ package com.ycspl.maptest
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationListener
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -58,6 +55,7 @@ class MapsActivity :  AppCompatActivity(), OnMapReadyCallback,
                 when (task.isSuccessful) {
                     true -> task.result?.let {
                         userCurrentLocation=it
+                        moveCamera(LatLng(userCurrentLocation.latitude, userCurrentLocation.longitude))
                     }
                     else -> requestPermission()
                 }
