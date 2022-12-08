@@ -11,6 +11,8 @@ import com.google.android.gms.location.LocationSettingsRequest.Builder
 import com.google.android.gms.location.LocationSettingsResponse
 import com.google.android.gms.location.LocationSettingsStatusCodes
 import com.google.android.gms.tasks.Task
+import com.ycspl.maptest.utility.REQUEST_CHECK_SETTINGS
+import com.ycspl.maptest.utility.UPDATE_INTERVAL_IN_MILLISECONDS
 
 fun getLocationRequest() = LocationRequest
     .Builder(UPDATE_INTERVAL_IN_MILLISECONDS)

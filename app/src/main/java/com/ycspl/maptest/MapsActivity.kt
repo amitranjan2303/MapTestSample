@@ -2,17 +2,18 @@ package com.ycspl.maptest
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationListener
 import com.google.android.gms.location.LocationServices
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -20,7 +21,9 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.ycspl.maptest.databinding.ActivityMapsBinding
+import com.ycspl.maptest.utility.*
 import com.ycspl.maptest.viewmodel.MapViewModel
+
 
 class MapsActivity :  AppCompatActivity(), OnMapReadyCallback,
     LocationListener, GoogleMap.OnCameraMoveListener,
@@ -32,6 +35,7 @@ class MapsActivity :  AppCompatActivity(), OnMapReadyCallback,
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<View>
 
     private lateinit var viewModel: MapViewModel
+    private lateinit var userCurrentLocation: Location
 
     private val locationPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
@@ -53,7 +57,7 @@ class MapsActivity :  AppCompatActivity(), OnMapReadyCallback,
             .lastLocation.addOnCompleteListener { task ->
                 when (task.isSuccessful) {
                     true -> task.result?.let {
-                        moveCamera(LatLng(it.latitude, it.longitude))
+                        userCurrentLocation=it
                     }
                     else -> requestPermission()
                 }
@@ -74,6 +78,7 @@ class MapsActivity :  AppCompatActivity(), OnMapReadyCallback,
             onCreate(savedInstanceState)
             getMapAsync(this@MapsActivity)
         }
+
         requestPermission()
 
         initBottomSheet()
@@ -81,6 +86,14 @@ class MapsActivity :  AppCompatActivity(), OnMapReadyCallback,
         handleFabClick()
 
         submitButtonClick()
+
+        currentLocationClick()
+    }
+
+    private fun currentLocationClick() {
+      binding.currentLocation.setOnClickListener{
+          moveCamera(LatLng(userCurrentLocation.latitude, userCurrentLocation.longitude))
+      }
     }
 
     private fun submitButtonClick() {

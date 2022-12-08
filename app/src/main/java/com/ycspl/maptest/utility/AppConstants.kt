@@ -1,4 +1,4 @@
-package com.ycspl.maptest
+package com.ycspl.maptest.utility
 
 const val STATE_EXPANDED: String = "state_expanded"
 const val PROPERTY_NAME: String = "property_name"
