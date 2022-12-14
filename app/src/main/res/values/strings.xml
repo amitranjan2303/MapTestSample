@@ -7,7 +7,6 @@
     <string name="property_coordinate">Property Coordinates</string>
     <string name="submit">Submit</string>
     <string name="coordinates">%s\n%s</string>
-    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDAGcqj6CYTokKxjMNs5rvI9e3gcM5BqoA</string>
-    <string name="title_activity_maps2">MapsActivity2</string>
+<!--    <string name="title_activity_maps2">MapsActivity2</string>-->
 
 </resources>
